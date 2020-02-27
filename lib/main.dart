@@ -24,6 +24,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
   TabController _tabController;
 
+  int _count = 0;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -55,6 +57,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           ],
         ),
       ),
+
       body: new TabBarView(
         controller: _tabController,
         children: <Widget>[
@@ -62,6 +65,14 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           new NewPage("Page Two"),
           new NewPage("Page Three"),
         ],
+      ),
+
+      floatingActionButton: new FloatingActionButton(
+        child: new Icon(Icons.add),
+        onPressed: (){
+          _count++;
+          print(_count);
+          },
       ),
     );
   }
